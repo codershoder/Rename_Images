@@ -1,0 +1,20 @@
+Often when w take pictures using digital cameras, the name of the image file is something like 'DSC004334' or 'IMG0034' . While there is nothing wrong with this, I wanted my pictures to be arranged by year, month I took them. Unfortunately I had around 2000 files to rename. I thought there should be a tool for this, there were but none I could find for Unix. For Windows there were plenty. So I decided to write my own for Linux.
+
+This tool will read the Exif data from the image and then rename it to year,dd,mm_hour:min:time
+
+Although not perfect by any means, it got my work done. I hope it helps you as well.
+Please make sure you take a backup of your picture before you use this. I do not gurantee anything.
+
+Usage: python rename_images.py <path to directory where your pictures are kept>
+
+Some points to note:
+1) Keep file_recursive.py in the same directory as rename_images.py
+2) Tested with Python2.6
+3) The directory can have other files, they won;t be modified. Only the image files will be.
+4) If the file has no Exif data, then the name won;t be changed
+
+
+Todo:
+1) Give user option for format (mm/dd/yy or dd/mm/yy or something else)
+2) add GUI
+
