@@ -1,4 +1,4 @@
-Often when w take pictures using digital cameras, the name of the image file is something like 'DSC004334' or 'IMG0034' . While there is nothing wrong with this, I wanted my pictures to be arranged by year, month I took them. Unfortunately I had around 2000 files to rename. I thought there should be a tool for this, there were but none I could find for Unix. For Windows there were plenty. So I decided to write my own for Linux.
+Often when we take pictures using digital cameras, the name of the image file is something like 'DSC004334' or 'IMG0034' . While there is nothing wrong with this, I wanted my pictures to be arranged by year, month I took them. Unfortunately I had around 2000 files to rename. I thought there should be a tool for this, there were but none I could find for Unix. For Windows there were plenty. So I decided to write my own for Linux.
 
 This tool will read the Exif data from the image and then rename it to year,dd,mm_hour:min:time
 
