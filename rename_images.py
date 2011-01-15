@@ -44,7 +44,7 @@ d ={
     '11' : 'nov',
     '12' : 'dec'
     }
-def rename_with_format(fn,only_path,value,format_choice,file_extension,prefix):
+def rename_with_format(fn,only_path,value,file_extension):
 	print 'only_path=%s' % only_path
 	file_delimiter = ""
 	date_and_time = value.split(' ')
@@ -63,7 +63,8 @@ def rename_with_format(fn,only_path,value,format_choice,file_extension,prefix):
 		
 	
 
-def get_exif(dir_path,fileDelimiter,format_choice,prefix=""):
+def get_exif(dir_path,fileDelimiter):
+    """Gets the exif data of a file and calls rename function"""    
     ret = {}
     choice = ""
     only_images = []
@@ -113,12 +114,13 @@ def get_exif(dir_path,fileDelimiter,format_choice,prefix=""):
 				else:
 					#'fn2=%s' % fn
 					os.rename(fn,only_path+(temp[0]+"__"+temp[2]+"."+file_extension))    """
-				rename_with_format(fn,only_path,value,format_choice,file_extension,prefix)
+				rename_with_format(fn,only_path,value,file_extension)
 		
 		print ' Done processing %s' % (fn)
 			  
 
 def main():
+	"""usage python rename_images.py <path to directory>"""
 	#for arg in sys.argv:
 	#	print arg
 	#print get_exif(sys.argv[1])
@@ -126,19 +128,7 @@ def main():
 		print 'No support yet for Windows'
 		sys.exit(0)
 	arg = sys.argv[1:]
-	print """ Enter your choice
-	          1) YYYY_MM_DD__Hours_Minutes_Seconds
-	          2) YYYY_MM_DD_Hours:Minutes:Seconds
-	          3) YYYY_MON_DD__Hours_Minutes_Seconds
-	          4) YYYY_MON_DD_Hours:Minutes:Seconds
-	          0) Keep default option : YYYY_MM_DD__Hours_Minutes_Seconds"""
-	format_choice = raw_input("---> ")
-	print """ Enter the Prefix if you want, e.g. IMG, DSC etc, Press Enter for No Prefix(Default)"""
-	prefix_choice = raw_input("---> ")
-	if prefix_choice=="":
-		get_exif(sys.argv[1],'/',format_choice)
-	else:
-		get_exif(sys.argv[1],'/',format_choice,prefix_choice)
+	get_exif(sys.argv[1],'/')
 	return 0
 
 if __name__ == '__main__':
